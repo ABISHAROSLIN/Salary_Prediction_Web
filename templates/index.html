@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Salary Predictor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="circle circle-one"></div>
+    <div class="circle circle-two"></div>
+    <div class="circle circle-three"></div>
+
+    <div class="main-container">
+
+        <div class="header">
+
+            <div class="icon">
+                💼
+            </div>
+
+            <h1>Salary Predictor</h1>
+
+            <p>
+                Predict your salary using
+                Linear Regression
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="input-title">
+
+                <span class="small-icon">
+                    📊
+                </span>
+
+                Years of Experience
+
+            </div>
+
+            <p class="description">
+
+                Enter your years of professional
+                experience to predict your salary.
+
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="number"
+                    name="experience"
+                    step="0.1"
+                    min="0"
+                    placeholder="Example: 5.0"
+                    required
+                >
+
+                <button type="submit">
+                    ✨ Predict Salary ✨
+                </button>
+
+            </form>
+
+            {% if prediction is not none %}
+
+            <div class="result-card">
+
+                <div class="money-icon">
+                    💰
+                </div>
+
+                <h2>
+                    Predicted Salary
+                </h2>
+
+                <div class="salary">
+                    ₹ {{ "%.2f"|format(prediction) }}
+                </div>
+
+                <p>
+                    Based on your experience
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="footer">
+
+            <span>🤖 Machine Learning</span>
+
+            <span>•</span>
+
+            <span>📈 Linear Regression</span>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
